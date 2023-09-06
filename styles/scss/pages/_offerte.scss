@@ -1,0 +1,55 @@
+
+.section-offerte-form {
+    .elementor-container.elementor-column-gap-default {
+        @include block-shadow;
+        background-color: $color-white-accent;
+        padding: 30px 20px;
+
+        @media (min-width: 992px){
+            padding: 50px 60px;
+        }
+
+        form {
+            div#gf_page_steps_3 {
+                display: none;
+            }
+        }
+    }
+}
+
+.section-offerte-stap {
+    .elementor-container.elementor-column-gap-default {
+        @include block-shadow;
+        background-color: $color-white-accent;
+        padding: 30px 20px;
+
+        @media (min-width: 992px){
+            padding: 50px 60px;
+        }
+    }
+}
+
+.section-offerte-stap.first {
+    margin-bottom: 40px !important;
+}
+
+// stappen secties hiden
+body:has(.gf_step_first.gf_step_active){
+    .section-offerte-form {
+        margin-bottom: 40px !important;
+    }
+
+    .section-offerte-stap.first {
+        display: none;
+    }
+}
+
+body:has(.gf_step_last.gf_step_active){
+    .section-offerte-stap.last {
+        display: none;
+    }
+
+    .gform_page_footer.top_label {
+        justify-content: space-between;
+    }
+}

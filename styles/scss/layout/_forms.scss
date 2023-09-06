@@ -1,0 +1,286 @@
+// ------------------------------------
+//
+// Forms
+//
+// ------------------------------------
+
+p.gform_required_legend {
+    display: none;
+}
+
+.gform_validation_errors {
+    display: none !important;
+}
+
+.gform_wrapper.gravity-theme {
+    .gfield_error {
+        label {
+            color: $color-grey-light !important;
+        }
+    }
+
+    label+[aria-invalid=true] {
+        color: $color-black !important;
+    }
+}
+
+form {
+    .gform-body {
+        .gfield {
+            label {
+                font-family: $font-body;
+                font-size: 14px !important;
+                color: $color-grey-light;
+                font-weight: 400 !important;
+            }
+
+            input, select {
+                border: none;
+                border-radius: 10px;
+                margin-bottom: 10px !important;
+                padding: 5px 10px;
+
+                @media (min-width: 992px){
+                    padding: 8px;
+                }
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+
+            input#input_3_21, input#input_3_25 {
+                @media (min-width: 992px){
+                    width: 49% !important;
+                }
+            }
+
+            select {
+                padding: 10px;
+            }
+
+            textarea {
+                border: none;
+                border-radius: 10px;
+                height: 150px !important;
+                resize: none;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+
+            h3 {
+                margin: 20px 0 0 !important;
+                font-weight: 900;
+            }
+
+            // checkbox
+            .gchoice {
+                input[type="checkbox"] {
+                    appearance: none;
+                    background-color: none;
+                    margin: 0;
+                    font: inherit;
+                    color: $color-red;
+                    width: 16px;
+                    height: 16px;
+                    border: 1.2px solid $color-black;
+                    border-radius: 0;
+                    transform: translateY(-0.075em);
+                    place-content: center;
+                    cursor: pointer;
+                    border-radius: 2px;
+                    margin-bottom: 0 !important;
+                    margin-right: 10px;
+                }
+                input[type="checkbox"]::before {
+                    content: "";
+                    width: 9.5px;
+                    height: 9.5px;
+                    transform: scale(0);
+                    transition: 120ms transform ease-in-out;
+                    // box-shadow: inset 1em 1em var(--form-control-color);
+                    /* Windows High Contrast Mode */
+                    background-color: $color-red;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    border-radius: 1px;
+                }
+                  
+                input[type="checkbox"]:checked::before {
+                    transform: scale(1);
+                }
+                  
+                input[type="checkbox"]:focus {
+                    outline: none;
+                }
+                input[type="checkbox"]:disabled {
+                    --form-control-color: $color-black;
+                    color: $color-black;
+                    cursor: not-allowed;
+                }
+
+                label {
+                    font-size: 13px !important;
+                    color: $color-black;
+                    max-width: 280px;
+
+                    @media (min-width: 992px){
+                        font-size: 15px !important;
+                        max-width: 600px;
+                    }
+                }
+            }
+
+            // radiobutton
+            .gchoice {
+                input[type="radio"] {
+                    appearance: none;
+                    background-color: none;
+                    margin: 0;
+                    font: inherit;
+                    color: $color-red;
+                    width: 16px;
+                    height: 16px;
+                    border: 1.2px solid $color-black;
+                    border-radius: 0;
+                    transform: translateY(-0.075em);
+                    place-content: center;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    margin-bottom: 0 !important;
+                    margin-right: 10px;
+                }
+                input[type="radio"]::before {
+                    content: "";
+                    width: 10.5px;
+                    height: 10.5px;
+                    transform: scale(0);
+                    transition: 120ms transform ease-in-out;
+                    // box-shadow: inset 1em 1em var(--form-control-color);
+                    /* Windows High Contrast Mode */
+                    background-color: $color-red;
+                    position: absolute;
+                    top: 2.8px;
+                    left: 2.8px;
+                    border-radius: 20px;
+                }
+                  
+                input[type="radio"]:checked::before {
+                    transform: scale(1);
+                }
+                  
+                input[type="radio"]:focus {
+                    outline: none;
+                }
+                input[type="radio"]:disabled {
+                    --form-control-color: $color-black;
+                    color: $color-black;
+                    cursor: not-allowed;
+                }
+            }
+
+            span.gfield_required {
+                display: none !important;
+            }
+
+            .gfield_description.validation_message {
+                padding: 0;
+                border: none;
+                background-color: transparent;
+                margin-top: -5px;
+                color: $color-red !important;
+            }
+        }
+
+        .gfield_radio {
+            .gchoice {
+                margin-bottom: 10px;
+            }
+        }
+
+        .gchoice.gchoice_3_20_1 {
+            margin-bottom: 20px;
+        }
+
+        .gfield--type-address {
+            // adres niet volledige breedte geven
+            .ginput_full {
+                flex: 0 0 50% !important;
+            }
+
+            label {
+                margin-bottom: 8px;
+                padding: 0;
+            }
+        }
+
+        div#field_3_23, div#field_3_24, div#field_3_27, div#field_3_28 {
+            @media (min-width: 992px){
+                margin-top: 25px;
+            }
+        }
+    }
+
+    .gform_footer, .gform_page_footer {
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            display: none !important;
+        }
+        
+        input[type=submit], .gform_next_button {
+            @include button-style;
+            background-color: $color-red;
+            color: $color-white;
+
+            margin-bottom: 2px !important;
+
+            &:hover {
+                margin-bottom: 0px !important;
+            }
+        }
+
+        .gform_previous_button {
+            background-color: transparent !important;
+            border: 1px solid transparent;
+            padding: 13px 35px 11px 0;
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            font-family: $font-heading;
+            color: $color-black !important;
+            transition: all 0.2s ease-in-out;
+
+            @media (min-width: 992px){
+                font-size: 16px;
+            }
+
+            &:hover {
+                color: $color-red !important;
+            }
+
+            &:focus, &:focus-visible {
+                outline: none;
+            }
+        }
+
+        span {
+            &::before {
+                content: '';
+                background-image: url(wp-content/uploads/2023/08/back-arrow.svg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: -10px;
+                top: 5px;
+            }
+        }
+    }
+}

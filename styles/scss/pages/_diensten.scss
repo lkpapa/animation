@@ -1,0 +1,94 @@
+
+.section-diensten-overview {
+    article {
+        @include block-shadow;
+        overflow: hidden !important;
+        background-color: $color-white-accent;
+        flex-direction: column !important;
+        max-height: 360px;
+
+        @media (min-width: 992px){
+            flex-direction: row !important;
+            overflow: visible !important;
+        }
+
+        .elementor-post__thumbnail {
+            @media (min-width: 992px){
+                position: relative !important;
+                overflow: visible !important;
+
+                img {
+                    position: absolute !important;
+                    left: -10px !important;
+                    top: -10px !important;
+                    max-width: 425px !important;
+                    width: 425px !important;
+                    max-height: 380px !important;
+                    height: 400px !important;
+                    object-fit: cover;
+                    overflow: hidden !important;
+                    border-radius: 20px !important;
+                    transform: rotate(-2deg) !important;
+                }
+            }
+        }
+
+        .elementor-post__text {
+            padding: 40px 25px 120px;
+
+            @media (min-width: 992px){
+                display: flex !important;
+                justify-content: center;
+                padding: 40px 100px;
+            }
+
+            h2 {
+                a {
+                    color: $color-black;
+                    font-size: 24px;
+                    line-height: 30px;
+                    font-weight: 900;
+
+                    @media screen and (min-width: 992px){
+                    font-size: 38px;
+                    line-height: 42px;
+                    }
+
+                }
+            }
+        }
+
+        a.elementor-post__read-more {
+           @include button-style;
+           background-color: $color-red;
+           color: $color-white;
+           margin: 30px 0 2px;
+
+           &:hover {
+            margin: 32px 0 0px;
+           }
+
+           &:visited {
+            color: $color-white;
+           }
+
+           @media (max-width: 991px){
+            position: absolute;
+           }
+        }
+
+        &:nth-of-type(even){
+            @media (min-width: 992px){
+                flex-direction: row-reverse !important;
+
+                .elementor-post__thumbnail {
+                    img {
+                        transform: rotate(2deg) !important;
+                        left: auto !important;
+                        right: -45px !important;
+                    }
+                }
+            }
+        }
+    }
+}

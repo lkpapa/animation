@@ -1,0 +1,118 @@
+// ------------------------------------
+//
+// Call to action
+//
+// ------------------------------------
+
+.section-cta-banner {
+    .section-banner {
+        @include block-shadow;
+        background-color: $color-red;
+        background-image: url(/wp-content/uploads/2023/08/circle-svg.svg);
+        padding: 0px 20px;
+        background-position: left -60% bottom -80%;
+        background-repeat: no-repeat;
+        background-size: 115%;
+
+        @media (min-width: 992px){
+            padding: 0px 100px;
+            background-position: left 160% top 20%;
+            background-size: 70%;
+        }
+
+        .column-content {
+            padding-top: 40px;
+
+            @media (min-width: 992px){
+                padding-top: 70px;
+            }
+
+            h2, p {
+                color: $color-white;
+            }
+
+            .elementor-widget-text-editor {
+                margin-bottom: 12px;
+            }
+        }
+
+        .column-image {
+            padding-top: 30px;
+
+            @media (min-width: 992px){
+                padding-top: 20px;
+            }
+
+            .elementor-widget-wrap.elementor-element-populated {
+                padding: 0;
+
+                img {
+                        width: 600px !important;
+                        min-width: 600px;
+                        max-height: 250px;
+                        object-fit: cover;
+                        object-position: top;
+
+                        @media (min-width: 992px){
+                            width: 1500px !important;
+                            min-width: 1260px;
+                            max-height: 500px;
+                        }
+                }
+            }
+        }
+    }
+}
+
+.section-cta-banner.nieuws {
+    .section-banner {
+        padding: 0px 60px;
+
+        .column-content {
+            padding-top: 60px;
+
+            h2, p {
+                width: 525px;
+            }
+        }
+
+        .column-image {
+            .elementor-widget-wrap.elementor-element-populated {
+                img {
+                    max-height: 450px;
+                }
+            }
+        }
+    }
+}
+
+
+.section-vacature-banner {
+    .elementor-container {
+        @include block-shadow;
+        background-color: $color-white-accent;
+        background-image: url(/wp-content/uploads/2023/08/circle-grey.svg);
+        padding: 30px 20px 0px;
+        background-position: left -60% bottom -80%;
+        background-repeat: no-repeat;
+        background-size: 115%;
+
+        @media (min-width: 992px){
+            padding: 0px 100px;
+            background-position: left 160% top 20%;
+            background-size: 70%;
+        }
+
+        .column-content {
+            .elementor-widget-wrap.elementor-element-populated {
+                max-width: 400px !important;
+            }
+        }
+
+        .column-image {
+            .elementor-widget-wrap.elementor-element-populated {
+                padding-bottom: 0 !important;
+            }
+        }
+    }
+}

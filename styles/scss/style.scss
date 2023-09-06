@@ -1,0 +1,45 @@
+// Abstract files
+@import "abstracts/mixins/mixins";
+@import "abstracts/variables/colors";
+@import "abstracts/variables/typography";
+
+// Base files
+@import "base/base";
+
+// Components
+@import "components/buttons";
+@import "components/carousel";
+@import "components/modal";
+@import "components/slider";
+
+// Layout
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/pagetitle";
+@import "layout/sidebar";
+@import "layout/footer";
+@import "layout/forms";
+
+// Pages
+@import "pages/404";
+@import "pages/home";
+@import "pages/about";
+@import "pages/news";
+@import "pages/contact";
+@import "pages/diensten";
+@import "pages/duurzaamheid";
+@import "pages/werken-bij";
+@import "pages/offerte";
+@import "pages/seo-page";
+
+// Sections
+@import "sections/cta";
+@import "sections/hero";
+
+// WooCommerce
+@import "woocommerce/product";
+@import "woocommerce/filter";
+@import "woocommerce/cart";
+@import "woocommerce/checkout";
+@import "woocommerce/thankyou";

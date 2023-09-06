@@ -1,0 +1,135 @@
+
+.section-vacature-single {
+    padding-top: 80px !important;
+    margin-top: -100px;
+    margin-bottom: 150px !important;
+    border-radius: 0 0 80px 80px;
+
+    @media (min-width: 992px){
+        padding-top: 200px !important;
+    }
+
+    .elementor-background-overlay {
+        border-radius: 0 0 80px 80px;
+    }
+
+    .elementor-container {
+        justify-content: space-between;
+
+        .column-content {
+            padding-top: 100px;
+            padding-bottom: 30px;
+
+            @media (min-width: 992px){
+                padding-top: 250px;
+                padding-bottom: 50px;
+            }
+
+            h1, p {
+                color: $color-white;
+            }
+        }
+    
+        .column-form {
+            @include block-shadow;
+            background-color: $color-white-accent;
+            padding: 30px 20px 20px;
+            max-width: 525px;
+            margin-bottom: -75px;
+
+            @media (min-width: 992px){
+                padding: 40px 40px 20px;
+            }
+        }
+    }
+}
+
+.section-werkenbij-intro {
+    margin: 0 15px;
+    padding: 30px 20px !important;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @media (min-width: 992px){
+        padding: 50px !important;
+    }
+
+    @media (min-width: 1280px){
+        margin: 0 calc((100vw - 1260px)/2);
+        padding: 120px !important;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+}
+
+.section-info {
+    margin-bottom: 50px !important;
+}
+
+.section-slider {
+    .elementor-image-carousel-wrapper.swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events {
+        min-width: 2400px;
+        margin-left: -350px;
+        overflow: visible;
+
+        .elementor-image-carousel {
+            align-items: center;
+            column-gap: 20px;
+
+            .swiper-slide {
+                width: auto !important;
+                max-height: 300px;
+
+                img {
+                    max-height: 300px;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+}
+
+.section-vacatures-overview {
+    .elementor-posts {
+        .vacature {
+            @include block-shadow;
+            background-color: $color-white-accent;
+
+            .elementor-widget-wrap.elementor-element-populated {
+                padding: 70px 30px 30px;
+
+                .elementor-widget-icon-list {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    
+                    ul {
+                        background-color: $color-red;
+                        padding: 10px 30px 10px 20px;
+                        border-radius: 0 0 20px 0;
+                        margin: 0 !important;
+                        position: absolute;
+
+                        li {
+                            color: $color-white;
+
+                            .elementor-icon-list-text {
+                                padding-left: 2px;
+                            }
+                        }
+                    }
+                }
+
+                .elementor-heading-title.elementor-size-default {
+                    font-size: 26px;
+                    font-weight: 900;
+                    text-transform: uppercase;
+
+
+                }
+            }
+        }
+    }
+}

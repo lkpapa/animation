@@ -1,0 +1,382 @@
+// ------------------------------------
+//
+// Header
+//
+// ------------------------------------
+
+/// header clean
+.section-header {
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    border-radius: 0 0 20px 20px;
+
+    @media (min-width: 992px){
+        background-color: $color-white;
+        box-shadow: 0 3px 30px #00000040;
+    }
+
+    @media (min-width: 1400px){
+        border-radius: 0 0 50px 50px;
+    }
+
+    .column-logo {
+        padding-top: 0px;
+
+        @media (max-width: 991px){
+            height: 0;
+        }
+
+        .site-logo {
+            position: absolute;
+            top: 0;
+
+            a {
+                background-color: transparent;
+                padding: 20px;
+                border-radius: 10px;
+
+                @media (min-width: 992px){
+                    background-color: $color-white;
+                    box-shadow: 0px 12px 10px -10px #00000040;
+                }
+
+                img {
+                    width: 115px !important;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+    }
+    
+    .column-nav {
+        padding: 10px 0 10px 10px;
+
+        .elementor-widget-nav-menu {
+            margin-bottom: 0;
+        }
+
+        nav {
+            justify-content: flex-end;
+    
+            ul {
+                li {
+                    a {
+                        padding: 5px 20px !important;
+                        background-color: transparent;
+                        margin-right: 10px !important;
+                        border-radius: 10px;
+    
+                        font-family: $font-heading;
+                        color: $color-black;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        line-height: 13px;
+    
+                        &:hover {
+                            color: $color-red;
+                            line-height: 13px !important;
+                        }
+                    }
+    
+                    a.has-submenu {
+                        line-height: 13px !important;
+                        padding: 0 25px !important;
+                        height: 40px;
+                        margin-top: 4px;
+                        transition: all 0.2s ease-in-out;
+
+                        &:hover {
+                            color: $color-black;
+                            background-color: $color-white;
+                            color: $color-black;
+                            line-height: 13px !important;
+                            padding: 0 25px !important;
+                            height: 40px;
+                            margin-top: 4px;
+                        }
+                    }
+    
+                    ul.sub-menu {
+                        margin-top: 10px !important;
+                        border-radius: 10px;
+                        padding: 5px 15px 15px !important;
+    
+                        li {
+                            a {
+                                background-color: transparent !important;
+                                color: $color-black;
+                                padding: 15px 0 5px !important;
+                                font-size: 16px;
+    
+                                &:hover {
+                                    padding: 15px 0 5px !important;
+                                    line-height: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                li.btn-default {
+                    a {
+                        background-color: $color-red;
+                        padding: 13px 30px !important;
+                        color: $color-white;
+                        line-height: 13px;
+    
+                        &:hover {
+                            line-height: 13px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .elementor-widget-icon {
+            a {
+                svg {
+                    box-shadow: 0 3px 30px #00000040;
+                    width: 40px;
+                    height: 38px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+
+    &.header-sticky {
+        .column-logo {    
+            .site-logo {
+                a {
+                    img {
+                        width: 85px !important;
+                        transition: all 0.2s ease-in-out;
+
+                        @media (max-width: 991px){
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#header-sticky{
+    transition : transform 0.34s ease;
+    z-index: 101;
+}
+
+.headerup{
+    transform: translateY(-160px);
+}
+
+
+// mobile menu 
+.mobile-pop-up {
+    .dialog-close-button {
+        right: 12px !important;
+
+        i {
+            &::before {
+                content: '';
+                background-image: url(/wp-content/uploads/2023/08/hamburger-menu-icon.svg);
+                width: 25px;
+                height: 25px;
+                display: block;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: $color-white;
+                box-shadow: 0px 0px 15px 5px #00000010;
+                padding: 20px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .elementor-location-popup {
+        padding: 10px;
+        
+        .section-logo {
+            .logo {
+                img {
+                    width: 100px;
+                }
+            }
+        }
+
+        .section-nav {
+            .column-uitklap {
+                margin-top: 30px;
+
+                // uitklapjes
+                .elementor-widget-text-editor {
+                    margin-bottom: 0px;
+        
+                    p.column-title {
+                        margin-bottom: 10px;
+                        color: $color-black;
+                        font-family: $font-heading;
+                        font-weight: 900;
+                        text-transform: uppercase;
+                        font-size: 16px;
+            
+                        &::after {
+                            content: '';
+                            background-image: url(/wp-content/uploads/2023/08/down-arrow.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            width: 10px;
+                            height: 10px;
+                            position: absolute;
+                            top: 8px;
+                            margin-left: 10px;
+                            transition: 0.3s ease-in-out;
+                            filter: invert(0%) sepia(6%) saturate(23%) hue-rotate(229deg) brightness(0%) contrast(105%);
+                        }
+        
+                        &:hover {
+                            cursor: pointer;
+                            color: $color-black;
+                        }
+                    }
+            
+                    p.column-title.unfold {
+                        &::after {
+                            background-image: url(/wp-content/uploads/2023/08/down-arrow.svg);
+                            transform: rotate(-180deg);
+                            top: 5px;
+                        }
+                    }
+            
+                    ul {
+                        height: 0;
+                        opacity: 0;
+                        transition: 0.2s ease-in-out;
+            
+                        li {
+                            padding: 0 0 0 10px;
+            
+                            &::before {
+                                display: none;
+                            }
+            
+                            a {
+                                text-decoration: none !important;
+                                margin-bottom: 12px;
+                                display: block;
+                                color: $color-black;
+                                text-decoration: none;
+                                -webkit-transition: opacity 0.3s 0s, -webkit-transform 0.3s 0s;
+                                transition: opacity 0.3s 0s, -webkit-transform 0.3s 0s;
+                                transition: opacity 0.3s 0s, transform 0.3s 0s;
+                                transition: opacity 0.3s 0s, transform 0.3s 0s, -webkit-transform 0.3s 0s;
+                                -webkit-transform: translateY(40%);
+                                transform: translateY(40%);
+                                opacity: 0;
+                                font-family: $font-heading;
+                                font-weight: 900;
+                                text-transform: uppercase;
+                                font-size: 16px;
+            
+                                &:hover {
+                                    cursor: pointer;
+                                    color: $color-red;
+                                }
+                            }
+                        }
+                    }
+            
+                    .unfold-title.unfold + ul { 
+                        height: 150px;
+                        opacity: 1;
+                        display: block;
+                        visibility: visible;
+                        
+                        li {
+                            &:nth-child(2) > a {
+                                transition-delay: .6s;
+                            }
+                            &:nth-child(3) > a {
+                                transition-delay: .8s;
+                            }
+                            &:nth-child(4) > a {
+                                transition-delay: 1s;
+                            }
+                            &:nth-child(5) > a {
+                                transition-delay: 1.2s;
+                            }
+                            
+                            a {
+                                opacity: 1;
+                                -webkit-transform: translateY(0);
+                                transform: translateY(0%);
+                                -webkit-transition: opacity 0.3s 0.4s, -webkit-transform 0.3s 0.4s;
+                                transition: opacity 0.3s 0.4s,-webkit-transform 0.3s 0.4s;
+                                transition: opacity 0.3s 0.4s, transform 0.3s 0.4s;
+                                transition: opacity 0.3s 0.4s, transform 0.3s 0.4s,-webkit-transform 0.3s 0.4s;
+            
+                                &:hover {
+                                    cursor: pointer;
+                                    color: $color-red;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .nav-menu {
+                    margin-top: 10px;
+
+                    p {
+                        margin-bottom: 20px;
+
+                        a {
+                            color: $color-black;
+                            font-family: $font-heading;
+                            font-weight: 900;
+                            text-transform: uppercase;
+                            text-decoration: none !important;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .btn-default {
+                    margin: 10px 0 30px;
+                }
+            }
+        }
+
+        .section-contact {
+            .elementor-widget-icon-list {
+                ul {
+                    li {
+                        align-items: flex-start;
+                        margin-bottom: 10px !important;
+    
+                        a {
+                            color: $color-black;
+                            font-size: 15px;
+                            align-items: flex-start;
+    
+                            &:hover {
+                                color: $color-red;
+                            }
+                        }
+    
+                        span {
+                            svg {
+                                width: 28px;
+                                height: 28px;
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,4 @@
+08/03/23 11:21:53: style.scss - Undefined variable $color-grey-light: abstracts/mixins/_mixins.scss on line 11, at column 5
+Call Stack:
+#0 mixin block-shadow pages/_home.scss on line 26
+#1 import pages/_home.scss style.scss on line 25
