@@ -1,0 +1,27 @@
+// ------------------------------------
+//
+// Grid
+//
+// ------------------------------------
+
+body {
+    .elementor-section:not(.nested) > .elementor-container {
+        max-width: 1280px !important;
+    }
+    .elementor-section.full-width:not(.nested) > .elementor-container {
+        max-width: 100vw !important;
+    }
+    .elementor-section.l-grid:not(.nested) > .elementor-container {
+        max-width: 1280px !important;
+    }
+    .elementor-section.s-grid:not(.nested) > .elementor-container {
+        max-width: 1064px !important;
+    }
+    .elementor-section.xs-grid:not(.nested) > .elementor-container {
+        max-width: 848px !important;
+    }
+}
+  
+body.elementor-editor-active .elementor-section:not(.prio) .elementor-element-overlay { /* Builder active restore section width */
+    max-width: 100% !important;
+}

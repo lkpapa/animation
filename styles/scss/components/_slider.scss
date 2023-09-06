@@ -1,0 +1,47 @@
+// ------------------------------------
+//
+// Slider
+//
+// ------------------------------------
+
+.section-slider-duurzaamheid {
+    @media (min-width: 1320px){
+        padding-left: calc((100vw - 1280px)/2) !important;
+    }
+
+    .column-content {
+        @media (min-width: 992px){
+            padding-right: 60px;
+        }
+    }
+
+    .swiper.imageSwiper {
+        margin-right: -400px;
+        margin-top: 30px;
+        cursor: url(/wp-content/uploads/2023/08/mouse-cursor.svg), auto !important;
+
+        @media (min-width: 992px){
+            margin-top: 0;
+            margin-right: -100px;
+        }
+
+        .swiper-wrapper {
+            .swiper-slide {
+                img {
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            width: 5%;
+            height: 100%;
+            top: 20px;
+            cursor: url(/wp-content/uploads/2023/08/mouse-cursor.svg), auto !important;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}

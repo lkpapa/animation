@@ -1,0 +1,59 @@
+// ------------------------------------
+//
+// Hero
+//
+// ------------------------------------
+
+.section-hero {
+    height: 100vh;
+    max-height: 900px;
+    min-height: 600px;
+    margin-top: -170px;
+    display: flex;
+    padding: 30px 10px;
+    border-radius: 0 0 40px 40px;
+    overflow: hidden;
+    z-index: 2;
+
+    @media (min-width: 992px){
+        padding: 70px 10px;
+        border-radius: 0 0 60px 60px;
+    }
+
+    .elementor-container.elementor-column-gap-default {
+        align-self: flex-end;
+    }
+
+    .nieuws {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -50px;
+
+        @media (max-width: 991px){
+            display: none;
+        }
+
+        .uitgelicht-nieuwsbericht {
+            max-width: 320px;
+            // background-color: $color-grey-dark;
+            border-radius: 20px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+    
+            img {
+                border-radius: 20px;
+            }
+    
+            .elementor-widget-theme-post-title {
+                p {
+                    font-family: $font-heading;
+                    font-size: 16px;
+                    color: $color-white;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    padding: 0px 15px 10px;
+                }
+            }
+        }
+    }
+}

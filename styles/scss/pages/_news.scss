@@ -1,0 +1,219 @@
+// ------------------------------------
+//
+// News page
+//
+// ------------------------------------
+
+// nieuws overzicht
+.section-nieuws-overzicht {
+    padding: 0 5px !important;
+
+    .nieuws-overzicht {
+        article {
+            .featured-image {
+                margin-bottom: 25px;
+
+                @media (min-width: 992px){
+                    margin-bottom: 20px;
+                }
+
+                .elementor-column {
+                    .elementor-widget-wrap.elementor-element-populated {
+                        @include block-shadow;
+                        padding: 0;
+
+                        .elementor-widget-image {
+                            margin-bottom: 0;
+
+                            img {
+                                max-height: 300px;
+                                object-fit: cover;
+                                transition: 0.2s ease-in-out;
+                            }
+                        }
+
+                        .elementor-widget-post-info {
+                            position: absolute;
+                            bottom: 0;
+
+                            ul {
+                                li {
+                                    color: $color-white;
+                                    font-weight: 800;
+                                    text-transform: uppercase;
+                                    padding: 10px 20px;
+                                    z-index: 0;
+
+                                    &::after {
+                                        content: "";
+                                        background-color: $color-red;
+                                        width: 115%;
+                                        height: 200%;
+                                        border-radius: 20px 20px 0 0;
+                                        transform: rotate(4deg);
+                                        position: absolute;
+                                        top: -10px;
+                                        left: -29px;
+                                        z-index: -1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .featured-image {
+                    .elementor-column {
+                        .elementor-widget-wrap.elementor-element-populated {
+                            .elementor-widget-image {
+                                img {
+                                    transform: scale(1.05);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .content {
+                .elementor-widget-heading {
+                    margin-bottom: 15px;
+
+                    @media screen and (max-width: 991px){
+                        margin-bottom: 10px;
+                    }
+
+                    h2 {
+                        font-size: 22px;
+                        line-height: 28px;
+
+                        @media screen and (min-width: 992px){
+                        font-size: 30px;
+                        line-height: 36px;
+                        }
+                    }
+                }
+
+                .elementor-widget-text-editor {
+                    font-family: $font-body;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: $color-grey-dark;
+
+                    @media screen and (min-width: 992px){
+                    font-size: 15px;
+                    line-height: 26px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// nieuws single
+.section-back {
+    margin-top: 50px;
+    margin-bottom: 30px !important;
+
+    @media (min-width: 992px){
+        margin-top: 150px;
+    }
+
+    .btn-back {
+        a {
+            padding: 0;
+            color: $color-black;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-weight: 800;
+
+            span.elementor-button-icon.elementor-align-icon-left {
+                margin-right: 10px;
+                margin-top: -1px;
+
+                svg {
+                    fill: $color-black;
+                    width: 10px;
+                }
+            }
+
+            span.elementor-button-text {
+                font-family: $font-heading;
+                font-weight: 900;
+            }
+
+            &:hover {
+                color: $color-red;
+            }
+        }
+    }
+}
+
+.section-nieuws-info {
+    margin-bottom: 30px !important;
+
+    @media (min-width: 992px){
+        margin-bottom: 50px !important;
+    }
+
+    .nieuws-category {
+        margin-bottom: 10px;
+
+        ul {
+            li {
+                background-color: $color-red;
+                padding: 10px 15px;
+                border-radius: 10px;
+                color: $color-white;
+                font-weight: 800;
+                font-family: $font-heading;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .nieuws-title {
+        h1 {
+            color: $color-black;
+        }
+    }
+
+    .nieuws-author {
+        .elementor-widget-container{
+            font-weight: 600;
+
+            &::before {
+                content: 'door';
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.section-nieuws-content {
+    @media (max-width: 991px){
+        margin-bottom: 30px;
+    }
+    
+    .elementor-widget-image {
+        img {
+            max-height: 375px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+    }
+
+    .nieuws-introductie {
+        margin-bottom: 30px !important;
+
+        .elementor-widget-container {
+            font-weight: 600;
+            font-family: $font-body;
+            font-size: 15px;
+            color: $color-grey-dark;
+        }
+    }
+}

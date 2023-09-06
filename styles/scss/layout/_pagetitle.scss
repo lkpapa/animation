@@ -1,0 +1,65 @@
+// ------------------------------------
+//
+// Page title
+//
+// ------------------------------------
+
+.section-page-title {
+    padding-top: 100px !important;
+    margin-bottom: 25px !important;
+
+    @media (min-width: 992px){
+        margin-bottom: 50px !important;
+    }
+
+    .breadcrumbs {
+        ul {
+            li {
+                margin-right: 12px;
+
+                a {
+                    font-family: $font-body;
+                    font-size: 12px;
+                    color: $color-black;
+
+                }
+            }
+
+            li:not(:first-of-type){
+                margin-right: 12px;
+                margin-left: 12px;
+            }
+
+            li:not(:last-of-type){
+                &::after {
+                    content: '';
+                    width: 5px !important;
+                    height: 8px !important;
+                    background-image: url(/wp-content/uploads/2023/08/forward-arrow.svg);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    position: absolute !important;
+                    top: 5px;
+                    border: none !important;
+                }
+            }
+
+            li:last-of-type {
+                a {
+                    color: $color-red;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+
+    h1 {
+        color: $color-black;
+        word-break: break-word;
+    }
+
+    .elementor-widget-text-editor {
+        max-width: 850px;
+    }
+}

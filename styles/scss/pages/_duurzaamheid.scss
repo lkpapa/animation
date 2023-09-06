@@ -1,0 +1,182 @@
+
+.section-two-columns {
+    margin-bottom: 50px !important;
+
+    @media (min-width: 992px){
+        margin-bottom: 150px !important;
+    }
+
+    .elementor-widget-image {
+        text-align: left !important;
+        margin-bottom: 70px;
+
+        @media (min-width: 992px){
+            margin-bottom: 0px;
+        }
+
+        &::after {
+            content: "";
+            @include block-shadow;
+            width: 90%;
+            height: 80%;
+            position: absolute;
+            left: 30px;
+            top: 100px;
+            z-index: -1;
+            background-color: $color-white-accent;
+
+            @media (min-width: 992px){
+                left: 50px;
+                top: 200px;
+            }
+        }
+
+        img {
+            width: 290px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 20px;
+
+            @media (min-width: 992px){
+                width: 540px;
+                height: 640px;
+            }
+        }
+    }
+
+    .column-content {
+        justify-content: flex-end;
+
+        .elementor-widget-wrap.elementor-element-populated {
+            max-width: 525px;
+        }
+    }
+}
+
+.section-tabs {
+    @media (max-width: 991px){
+        margin-bottom: 50px;
+    }
+
+    .elementor-container.elementor-column-gap-default {
+        background-color: $color-red;
+        margin-bottom: 10px;
+        padding: 30px 20px 30px;
+        margin: -10px !important;
+
+        @media (min-width: 992px){
+            padding: 80px 100px 60px;
+            margin: 0 auto 20px !important;
+            @include block-shadow;
+            border-radius: 30px;
+        }
+
+        .elementor-column {
+            .elementor-widget-wrap.elementor-element-populated{
+                h2 {
+                    color: $color-white;
+                    text-align: left;
+                    max-width: 525px;
+                    margin: 0;
+
+                    @media (min-width: 992px){
+                        text-align: center;
+                        margin: 0 auto 20px;
+                    }
+                }
+
+                .elementor-widget-tabs {
+                    .elementor-tabs-wrapper {
+                        display: flex;
+                        justify-content: flex-start;
+
+                        @media (min-width: 992px){
+                            justify-content: center;
+                        }
+
+                        .elementor-tab-title {
+                            background-color: #E8736C;
+                            color: $color-white;
+                            font-family: $font-heading;
+                            font-weight: 900 !important;
+                            padding: 10px 15px !important;
+                            border-radius: 10px;
+                            margin-right: 5px;
+                            font-size: 12px;
+
+                            @media (min-width: 992px){
+                                font-size: 13px;
+                                padding: 15px 30px !important;
+                                border-radius: 15px;
+                                margin: 0 10px;
+                            }
+                        }
+
+                        .elementor-tab-title.elementor-active {
+                            background-color: $color-white;
+                            color: $color-black;
+                        }
+                    }
+
+                    .elementor-tabs-content-wrapper {
+                        margin-top: 50px;
+
+                        .elementor-tab-title.elementor-tab-mobile-title {
+                            display: none;
+                        }
+
+                        .elementor-tab-content {
+                            border: none;
+                            flex-direction: column;
+                            padding: 0;
+
+                            @media (min-width: 992px){
+                                flex-direction: row;
+                            }
+
+                            .left {
+                                color: $color-white;
+                                width: 100%;
+                                margin-bottom: 20px;
+
+                                @media (min-width: 992px){
+                                    width: 40%;
+                                    display: inline-block;
+                                    margin-bottom: 0px;
+                                }
+
+                                h3 {
+                                    color: $color-white;
+                                    font-weight: 800;
+                                }
+
+                                p {
+                                    color: $color-white;
+                                }
+                            }
+
+                            .right {
+                                width: 100%;
+
+                                @media (min-width: 992px){
+                                    width: 50%;
+                                    display: inline-block;
+                                }
+
+                                img {
+                                    border-radius: 20px;
+                                }
+                            }
+                        }
+
+                        .elementor-tab-content.elementor-active {
+                            display: flex !important;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
