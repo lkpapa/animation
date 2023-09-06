@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wlt-car1
+* source:	https://sketchfab.com/3d-models/wlt-car1-079fdd4acaa44599bb3afc83e2ec2a7f
+* author:	wessel2 (https://sketchfab.com/wessel2)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wlt-car1" (https://sketchfab.com/3d-models/wlt-car1-079fdd4acaa44599bb3afc83e2ec2a7f) by wessel2 (https://sketchfab.com/wessel2) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
