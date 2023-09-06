@@ -182,7 +182,7 @@
                     
                     <div class="container">
                         <div class="hero">
-                            <img src="/assets/img/carImg.png" alt="" class="imgdata">
+                            <img src="./assets/donut/img/carImg.png" alt="" class="imgdata">
                             <h2>Animmation 3D</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
                                 providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
@@ -280,7 +280,7 @@
              *  Textures
              */
             const textureLoader = new THREE.TextureLoader()
-            const alphaShadow = textureLoader.load('/assets/texture/simpleShadow.jpg');
+            const alphaShadow = textureLoader.load('./assets/donut/texture/simpleShadow.jpg');
 
             // Scene
             const scene = new THREE.Scene()
@@ -330,7 +330,7 @@
              * GLTF Model
              */
             let donut = null
-            gltfLoader.load('/models/wlt-car1/scene.gltf',
+            gltfLoader.load('./donut/models/wlt-car1/scene.gltf',
                 (gltf) => {
                     //console.log(gltf);
 
