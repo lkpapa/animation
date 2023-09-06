@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Animation We Love Transport</title>
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+            }
+            body{
+                background: #ffffff;
+            position: relative;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            }
+            #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    }
+
+        .animationBody::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .animationBody.loaded {
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        .firstSec{
+            z-index: 99 ;
+            background: #fff;
+        }
+        .animationBody {
+    background-color: #959d9a;
+    color: #fff;
+}
+        .webgl {
+            position: fixed ;
+            top:0;
+            left: -30px;
+            outline: none;
+            opacity: 0;
+            z-index: 1  ;
+            /* transition: all 0.5s 0s ease-out;  */
+        }
+        .webgl.view {
+            position: absolute;
+
+        }
+        .webgl.showCar{
+            opacity: 1;
+        }
+        .animationBody.start canvas {
+            top: 107px;
+            left: 25px !important;
+        }
+        
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+        }
+        section#lastDev .hero {
+    left: 73px;
+    position: relative;
+}
+        section .container {
+            max-width: 1280px;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        section.one .container {
+            grid-template-areas: 'content ..'
+        }
+        
+        section.two .container {
+            grid-template-areas: '.. content'
+        }
+        
+        .hero {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 50px;
+        
+            grid-area: content;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        
+        h2 {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 42px;
+            font-family: inherit;
+            display: block;
+            width: 100%;
+            font-family: 'Nunito', sans-serif !important;
+            text-transform: uppercase;
+        }
+        
+        p {
+            font-size: 15px;
+            line-height: 26px;
+            font-weight: 400;
+            display: block;
+            width: 100%;
+        }
+        
+        .loading-bar {
+            position: fixed;
+            top: 50%;
+            width: 100%;
+            height: 0px;
+            z-index: 99;
+            background: none;
+            transform: scaleX(0);
+            transition: transform 0s;
+            transform-origin: top left;
+        }
+        
+        .loading-bar.ended {
+            transform: scaleX(0);
+            transform-origin: 100% 0;
+            transition: transform 0s ease-in-out;
+        }
+        </style>
+    </head>
+    <Body>
+       <header>
+
+       </header>
+        <section class="one22 firstSec">
+            <div class="container_sec">
+                <div class="hero22">
+                    <h2 style="
+                    position: absolute;
+                    top: 50%;
+                    color: #fff;
+                    text-align: center;
+                ">Home Section</h2>
+                    <video   src="https://welovetransport.kinsta.cloud/wp-content/uploads/2023/08/9290_tcc20slider20v2.mp4" style="width: 100vw; height: 841.6px;"></video>
+    
+                </div>
+            </div>
+        </section>
+        <main>
+            <div class="animationBody" id="my-element2">
+               
+                <div class="loading-bar"></div>
+
+                <section class="one">
+                    
+                    <div class="container">
+                        <div class="hero">
+                            <h2>Animmation 3D</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
+                                providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
+                                expedita ratione velit modi. Nisiquaerat illum amet quisquam iusto perferendis <br>
+                                ducimus aspernatur quia, repellendus beatae fugiat!</p>
+
+                        </div>
+                    </div>
+                </section>
+            
+                <section class="two" id="lastDev" >
+                    <canvas class="webgl"  id="nameData" ></canvas>
+                    <div class="container">
+                        <div class="hero">
+                            
+                            <h2>Animation 3D Last</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
+                                providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
+                                expedita ratione velit modi. Nisiquaerat illum amet quisquam iusto perferendis <br>
+                                ducimus aspernatur quia, repellendus beatae fugiat!</p>
+
+                        </div>
+                    </div>
+                </section>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+                <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/GLTFLoader.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+               
+
+            <script>
+                 function findPos(id) {
+                    var node = document.getElementById(id);     
+                    var curtop = 0;
+                    var curtopscroll = 0;
+                    if (node.offsetParent) {
+                        do {
+                            curtop += node.offsetTop;
+                            curtopscroll += node.offsetParent ? node.offsetParent.scrollTop : 0;
+                        } while (node = node.offsetParent);
+
+                        //alert(curtop - curtopscroll);
+                        return curtop - curtopscroll
+                    }
+                } 
+                
+               
+                const canvas = document.querySelector('canvas.webgl');
+        //     setTimeout(()=>{
+        //         console.log(findPos('lastDev'));
+        //         canvas.style.top =findPos('lastDev');
+        //    },1000)
+
+            /**
+             * Loaders
+             */
+            const loadingBarElement = document.querySelector('.loading-bar')
+            const animationBodyElement = document.querySelector('animationBody')
+            const loadingManager = new THREE.LoadingManager(
+                () => {
+                    window.setTimeout(() => {
+                        gsap.to(overlayMaterial.uniforms.uAlpha, {
+                            duration: 0,
+                            value: 0,
+                            delay: 0
+                        })
+                        gsap.to(overlayMaterial.uniforms.uAlpha, {
+                            duration: 0,
+                            value: 0,
+                            delay: 0
+                        })
+
+                        loadingBarElement.classList.add('ended')
+                        animationBodyElement.classList.add('loaded')
+                        loadingBarElement.style.transform = ''
+
+                    }, 0)
+                },
+                (itemUrl, itemsLoaded, itemsTotal) => {
+                    console.log('test')
+                    //console.log(itemUrl, itemsLoaded, itemsTotal)
+                    const progressRatio = itemsLoaded / itemsTotal
+                    loadingBarElement.style.transform = `scaleX(${progressRatio})`
+                   // console.log(progressRatio)
+                },
+                () => {
+
+                }
+            )
+    
+            const gltfLoader = new THREE.GLTFLoader(loadingManager);
+        
+            /**
+             *  Textures
+             */
+            const textureLoader = new THREE.TextureLoader()
+            const alphaShadow = textureLoader.load('./assets/texture/simpleShadow.jpg');
+
+            // Scene
+            const scene = new THREE.Scene()
+
+            const sphereShadow = new THREE.Mesh(
+                new THREE.PlaneGeometry(1.5, 1.5),
+                new THREE.MeshBasicMaterial({
+                    transparent: true,
+                    color: 0x000000,
+                    opacity: 0.5,
+                    alphaMap: alphaShadow
+                })
+            )
+
+            sphereShadow.rotation.x = -Math.PI * 0.5
+
+            sphereShadow.position.y = -1
+            sphereShadow.position.x = 1.5;
+            // /**
+            //  * Overlay
+            //  */
+            const overlayGeometry = new THREE.PlaneGeometry(0, 0, 0, 0)
+            const overlayMaterial = new THREE.ShaderMaterial({
+                vertexShader: `
+                    void main() {
+                        gl_Position = vec4(position, 1.0);
+                    }
+                `,
+                fragmentShader: `
+                    uniform float uAlpha;
+                    void main() {
+                        gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+                        // gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+                    }
+                `,
+                uniforms: {
+                    uAlpha: {
+                        value: 1.0
+                    }
+                },
+                transparent: true
+            })
+            const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
+            scene.add(overlay)
+
+            /**
+             * GLTF Model
+             */
+            let donut = null
+            gltfLoader.load('./models/wlt-car1/scene.gltf',
+                (gltf) => {
+                    //console.log(gltf);
+
+                    donut = gltf.scene
+
+                    const radius = 0.5
+
+                    donut.position.x = 1.5
+                    donut.position.y = -5
+
+                    donut.rotation.x = Math.PI * 2
+                    donut.rotation.z = Math.PI * 0
+                    donut.rotation.y = Math.PI * 1.5
+
+                    donut.scale.set(radius, radius, radius)
+
+                    scene.add(donut)
+                },
+                (progress) => {
+                    console.log(progress);
+                },
+                (error) => {
+                    console.error(error);
+                }
+            )
+
+            /**
+             * Light
+             */
+            const ambientLight = new THREE.AmbientLight(0xffffff, 2)
+            scene.add(ambientLight)
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+            directionalLight.position.set(2, 2, 0)
+
+            directionalLight.castShadow = true
+            scene.add(directionalLight)
+
+            /**
+             * Sizes
+             */
+            const sizes = {
+                width: window.innerWidth,
+                height: window.innerHeight,
+            }
+
+            /**
+             * Scroll
+             */
+             const initialRadius = 0.5; // Initial donut radius (at the top)
+            const targetRadius = 0.6; // Target donut radius (when scrolled to the bottom)
+
+             let scrollY = window.scrollY;
+            const transformDonut = [
+            {
+                positionX: 1.5,
+                positionY: -8,
+                rotationZ: 0,
+                rotationX: 2,
+                rotationY: -1.6,
+            },
+            
+            {
+                positionX: 1.5,
+                positionY: -8,
+                rotationZ: 0,
+                rotationX: 2,
+                rotationY: -1.6,
+            },   
+            // {
+            //     positionX: 1.5,
+            //     positionY: -8,
+            //     rotationZ: 0,
+            //     rotationX: 2,
+            //     rotationY: -1.6,
+            // },
+            {
+                positionX: -1.9,
+                positionY: -8,
+                rotationZ: 0,
+                rotationX: 2,
+                rotationY: 1.6,
+            },
+          
+            // {
+            //     positionX: 1.5,
+            //     positionY: -8,
+            //     rotationZ: 0,
+            //     rotationX: 0,
+            //     rotationY: -1.6,
+            // },
+            // {
+            //     rotationZ: 0,
+            //     positionX: -1.5,
+            //     rotationX: 2,
+            //     rotationY: 0.5,
+            // },
+            ];
+                    /**
+             * Camera
+             */
+            // Base camera
+            const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 1000)
+            camera.position.z = 5
+
+            scene.add(camera)
+
+            /**
+             * Renderer
+             */
+            const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true,
+                alpha: true
+            })
+            renderer.shadowMap.enabled = true
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap
+            renderer.setSize(sizes.width, sizes.height)
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+            /**
+             * Animate
+             */
+            const clock = new THREE.Clock()
+            let lastElapsedTime = 0
+
+            const tick = () => {
+                const elapsedTime = clock.getElapsedTime()
+                const deltaTime = elapsedTime - lastElapsedTime
+                lastElapsedTime = elapsedTime
+
+                if (!!donut) {
+                    donut.position.y = Math.sin(elapsedTime * 20) * 0 - 0
+                    sphereShadow.material.opacity = (1 - Math.abs(donut.position.y)) * 0.3
+                }
+
+                // Render
+                renderer.render(scene, camera)
+
+                // Call tick again on the next frame
+                window.requestAnimationFrame(tick)
+            }
+
+            tick();
+
+            window.addEventListener('scroll', () => {
+
+                //start
+                scrollY = window.scrollY;
+                const sectionIndex = Math.floor(scrollY / sizes.height);
+                const progressInSection = (scrollY % sizes.height) / sizes.height;
+            
+                if (!!donut && transformDonut[sectionIndex+1]) {
+                    //console.log(sectionIndex)
+                    if(sectionIndex===1){
+                        canvas.classList.add('showCar');
+                    }else{
+                        canvas.classList.remove('showCar');
+                    }
+                    gsap.to(donut.rotation, {
+                        duration: 0,
+                        ease: 'power2.inOut',
+                        z: transformDonut[sectionIndex].rotationZ + progressInSection * (transformDonut[sectionIndex + 1].rotationZ - transformDonut[sectionIndex].rotationZ),
+                        y: transformDonut[sectionIndex].rotationY + progressInSection * (transformDonut[sectionIndex + 1].rotationY - transformDonut[sectionIndex].rotationY),
+                    });
+
+                    gsap.to(donut.position, {
+                        duration: 0,
+                        ease: 'power2.inOut',
+                        x: transformDonut[sectionIndex].positionX + progressInSection * (transformDonut[sectionIndex + 1].positionX - transformDonut[sectionIndex].positionX),
+                        y: transformDonut[sectionIndex].positionY + progressInSection * (transformDonut[sectionIndex + 1].positionY - transformDonut[sectionIndex].positionY),
+                    });
+
+                    // Calculate the new donut scale based on the scroll progress
+                    const targetScale = 0.7;
+                    const startScale = 0.5;
+                    const newScale = startScale + progressInSection * (targetScale - startScale);
+
+                    // Update the donut's scale using GSAP
+                    gsap.to(donut.scale, {
+                        duration: 0,
+                        ease: 'power2.inOut',
+                        x: newScale,
+                        y: newScale,
+                        z: newScale,
+                    });
+                }
+            });
+
+    
+
+            /**
+             * On Reload
+             */
+            window.onbeforeunload = function () {
+                //window.scrollTo(0, 0);
+            }
+            /***********************Ankul Code*************/
+          var myElement2 = document.getElementById('my-element2');
+          function elementInViewport2() {
+            var bounding2 = myElement2.getBoundingClientRect();
+            var myElementHeight2 = myElement2.offsetHeight;
+            var myElementWidth2 = myElement2.offsetWidth;
+                if (bounding2.top >= -myElementHeight2 
+                  && (bounding2.left >= -myElementWidth2)
+                  && (bounding2.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight2)) {
+                 
+                  console.log('Element is in the viewport!');
+                  document.querySelector('.animationBody').classList.add('start')
+              } else {
+
+                  console.log('Element is NOT in the viewport!');
+                  document.querySelector('.animationBody').classList.remove('start');
+              }
+          }
+          window.addEventListener('scroll', () => {
+              elementInViewport2();
+          });
+       
+            </script>
+        </main>
+    </div>
+    
+    <section class="one2 ankul my-element firstSec" id="my-element" style="
+    background: #997575;
+    color: #fff;
+">
+        <div class="container">
+            <div class="hero2 papa">
+                <h2>MArco Checking New Sction</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
+                    providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
+                    expedita ratione velit modi. Nisiquaerat illum amet quisquam iusto perferendis <br>
+                    ducimus aspernatur quia, repellendus beatae fugiat!</p>
+            </div>
+        </div>
+    </section>
+    <section class="one2 my-element firstSec">
+        <div class="container">
+            <div class="hero2">
+                <h2>We Love Transport</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
+                    providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
+                    expedita ratione velit modi. Nisiquaerat illum amet quisquam iusto perferendis <br>
+                    ducimus aspernatur quia, repellendus beatae fugiat!</p>
+
+            </div>
+        </div>
+    </section>
+    <section class="one2 my-element firstSec">
+        <div class="container">
+            <div class="hero2">
+                <h2>Packing</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquid culpa, <br>
+                    providentvoluptatem excepturi id in quasi ea hic voluptate dicta amet explicabo <br>
+                    expedita ratione velit modi. Nisiquaerat illum amet quisquam iusto perferendis <br>
+                    ducimus aspernatur quia, repellendus beatae fugiat!</p>
+
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <script>
+       var myElement = document.getElementById('my-element');
+          function elementInViewport() {
+          var bounding = myElement.getBoundingClientRect();
+          var myElementHeight = myElement.offsetHeight;
+          var myElementWidth = myElement.offsetWidth;
+            //   if (bounding.top >= -myElementHeight 
+            //       && bounding.left >= -myElementWidth
+            //       && bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
+            //       && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
+                if (bounding.top >= -myElementHeight 
+                  && (bounding.left >= -myElementWidth)
+                  && (bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight)) {
+                 
+
+                  //console.log('Element is in the viewport!');
+                  document.querySelector('.webgl').classList.add('view')
+              } else {
+
+                  //console.log('Element is NOT in the viewport!');
+                  document.querySelector('.webgl').classList.remove('view');
+              }
+          }
+          window.addEventListener('scroll', () => {
+              elementInViewport();
+          });
+    </script>
+</body>
+</html>
